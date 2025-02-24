@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import img1 from '../images/img1.jpg';
 
-function Navbar({ isSignedIn, hanleSignInClick }) {
+function Navbar({ isSignedIn, handleSignInClick }) {
     const location = useLocation();
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => setMenuOpen(!isMenuOpen);
+    const closeMenu = () => setMenuOpen(false);
 
     const isSignInPage = location.pathname === '/signin';
 
@@ -25,36 +26,29 @@ function Navbar({ isSignedIn, hanleSignInClick }) {
             </div>
 
             {/* Hamburger button - toggles the menu */}
-            <button
-                className="hamburger"
-                onClick={toggleMenu}
-                aria-label="Toggle navigation"
-            >
+            <button className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">
                 &#9776;
             </button>
 
-            {/* Navigation links - shown based on screen size */}
+            {/* Navigation links */}
             <div className={`nav-elements ${isMenuOpen ? 'active' : ''}`}>
-                {isSignedIn && (
-                    <>
-                        <Link className="element" to="/home">Home</Link>
-                        <Link className="element" to="/Alumni">Alumni</Link>
-                        <Link className="element" to="/event">Event</Link>
-                        <Link className="element" to="/post">Post</Link>
-                    </>
-                )}
-            </div>
+                <Link className="element" to="/home" onClick={closeMenu}>Home</Link>
+                <Link className="element" to="/alumni" onClick={closeMenu}>Alumni</Link>
+                <Link className="element" to="/event" onClick={closeMenu}>Event</Link>
 
-            <div className="nav-right">
-                {!isSignInPage && !isSignedIn && (
-                    <Link to="/signin">
-                        <button className="btn" onClick={hanleSignInClick} type="button">Sign In</button>
-                    </Link>
-                )}
-                {isSignedIn && (
-                    <Link className='nav-prof-img' to="/profile">
-                        <img src="https://via.placeholder.com/150" alt="Profile" />
-                    </Link>
+                {isSignedIn ? (
+                    <>
+                        <Link className="element" to="/post" onClick={closeMenu}>Post</Link>
+                        <Link className="nav-prof-img" to="/profile" onClick={closeMenu}>
+                            <img src="https://via.placeholder.com/150" alt="Profile" />
+                        </Link>
+                    </>
+                ) : (
+                    !isSignInPage && (
+                        <Link to="/signin">
+                            <button className="btn" onClick={handleSignInClick} type="button">Sign In</button>
+                        </Link>
+                    )
                 )}
             </div>
         </nav>

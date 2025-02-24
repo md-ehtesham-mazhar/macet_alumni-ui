@@ -15,7 +15,7 @@
   background-size: cover;
   background-position: center; 
   justify-content: center;
-  background-image: url('images/img2.jpg'); 
+  /* background-image: url('images/img2.jpg');  */
   flex: 1; /* Makes the container stretch to take up all remaining space */
   padding-top: 50px;
 }
@@ -42,8 +42,9 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 12px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-logo {
@@ -52,21 +53,27 @@
 }
 
 .logo-img {
-  width: 40px;
+  width: 50px;
   height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
 }
 
 .logo {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .navbar-brand {
   font-weight: bold;
   color: #a37070;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
+  transition: color 0.3s ease-in-out;
 }
 
 .navbar-brand:hover {
@@ -75,57 +82,74 @@
 
 .nav-elements {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 40px;
   transition: all 0.3s ease-in-out;
 }
 
 .nav-right {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .btn {
   background-color: white;
   color: black;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .btn:hover {
   background-color: #068932;
-  color: black;
+  color: white;
+  transform: scale(1.05);
 }
 
 .element {
   text-decoration: none;
   color: whitesmoke;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
 }
 
 .element:hover {
   color: wheat;
-  border: 1px solid wheat;
-  border-radius: 2px;
+  border-bottom: 2px solid wheat;
+  padding-bottom: 2px;
   text-decoration: none;
 }
 
-.nav-prof-img img{
+.nav-prof-img img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-prof-img img:hover {
+  transform: scale(1.1);
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  /* Hide links and show hamburger on smaller screens */
   .nav-elements {
     display: none;
     flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
     background-color: rgb(10, 9, 40);
-    padding: 10px 0;
-    gap: 10px;
+    padding: 20px 0;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
   }
 
   .nav-elements.active {
@@ -134,29 +158,28 @@
 
   .hamburger {
     display: block;
-    font-size: 24px;
+    font-size: 28px;
     color: white;
     background: none;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .hamburger:hover {
+    transform: rotate(90deg);
   }
 
   .logo-img {
-    width: 30px;
+    width: 40px;
   }
 
   .navbar-brand {
-    font-size: 12px;
+    font-size: 16px;
   }
-
-  .btn-profile {
-    font-size: 14px;
-  }
-
 }
 
 @media (min-width: 769px) {
-  /* Show links and hide hamburger on larger screens */
   .hamburger {
     display: none;
   }
@@ -277,206 +300,285 @@
   align-items: center;
 }
 
-Profile Page CSS
+/* Profile Page CSS */
 .profile-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .profile-header h1 {
-  font-size: 36px;
-  color: #333;
+  font-size: 32px;
+  color: #222;
+  font-weight: 600;
 }
 
 .profile-content {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  gap: 20px;
 }
 
 .profile-sidebar {
   width: 30%;
   padding: 20px;
-  background-color: rgb(10, 9, 40);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #162447;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-left: 10px;
+  color: #ffffff;
 }
 
 .profile-image img {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
+  border: 4px solid #fff;
 }
 
 .profile-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-edit, .btn-logout {
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .btn-edit {
-  background-color: #007bff;
+  background: #007bff;
   color: #fff;
 }
 
 .btn-edit:hover {
-  background-color: #0056b3;
+  background: #0056b3;
 }
 
 .btn-logout {
-  background-color: #dc3545;
+  background: #dc3545;
   color: #fff;
 }
 
 .btn-logout:hover {
-  background-color: #c82333;
+  background: #c82333;
 }
 
 .profile-details {
   width: 65%;
   padding: 20px;
-  background-color: rgb(10, 9, 40);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .profile-details h2 {
-  font-size: 28px;
-  color: #fff;
+  font-size: 24px;
+  color: #333;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .profile-detail {
   display: flex;
   justify-content: space-between;
-  
-  margin-bottom: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-detail:last-child {
+  border-bottom: none;
 }
 
 .profile-detail label {
-  font-weight: bold;
-  color: #fff;
+  font-weight: 600;
+  color: #555;
 }
 
 .profile-detail p {
-  color: #fff;
+  color: #333;
 }
- 
- @media screen and (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
   .profile-content {
     flex-direction: column;
     align-items: center;
-  }  
-}
+  }
 
   .profile-sidebar, .profile-details {
     width: 100%;
     margin-bottom: 20px;
   }
-
-
-/* Alumni */
-.alumni-page {
-  border: 1px solid rgb(168, 18, 18);
-  background-color: white;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 20vw;
-  padding: 20px;
-  position: relative;
-  margin: 0; /* Remove any default margins */
-  width: 100%; /* Ensure full-width layout */
-  box-sizing: border-box; /* Include padding in width calculations */
 }
 
+/*------------------Alumni page--------------------*/
+
+/* Alumni Page */
+.alumni-page {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Dark & Light Mode */
+.light-mode {
+  background: #f4f4f4;
+  color: black;
+}
+
+.dark-mode {
+  background: #121212;
+  color: white;
+}
+
+/* Mode Toggle Button */
+.mode-toggle {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: #ffcc00;
+  color: black;
+  transition: 0.3s;
+}
+
+.dark-mode .mode-toggle {
+  background-color: #444;
+  color: white;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: solid;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Alumni Container */
 .alumni-container {
   display: grid;
-  /* grid-template-columns: repeat(3, 1fr); 3 cards per row */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px; /* Spacing between cards */
-  margin: 20px 0; /* Margin for better spacing */
-  padding: 0; /* Remove padding from the grid */
-
-}
-
-@media (max-width: 480px) {
-  .alumni-container {
-    grid-template-columns: 1fr; /* 1 card per row on very small screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .alumni-container {
-    grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
-  }
-}
-
-.alumni-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  text-align: center;
-  width: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  background-color: rgb(10, 9, 40);
-  color: #ccc;
 }
 
+/* Alumni Card with Flip Effect */
+.alumni-card {
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.alumni-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+}
+
+.card-back {
+  background: rgba(255, 255, 255, 0.1);
+  color: #0b0101;
+  transform: rotateY(180deg);
+}
+
+/* Profile Image */
 .alumni-card-image {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border: 3px solid white;
 }
 
+/* Name */
 .alumni-card-name {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #ccc;
 }
 
+/* Title */
 .alumni-card-title {
   font-size: 1rem;
+  font-style: italic;
   margin-bottom: 10px;
-  color: #ccc;
+  color: #ffd700;
 }
 
+/* Bio */
 .alumni-card-bio {
   font-size: 0.9rem;
-  color: #ccc;
-}
-.mainProfile{
-  display: flex;
-  justify-content: space-between;
+  opacity: 0.9;
+  line-height: 1.5;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .alumni-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .alumni-container {
+    grid-template-columns: 1fr;
+  }
+}
 /* Event */
 .event-page {
   background-color:white;
@@ -504,7 +606,7 @@ Profile Page CSS
   border-radius: 5px;
 }
 
-@media (max-width: 700px) 
+@media (max-width: 676px) 
 {
 .event-images-grid {
   grid-template-columns: 1fr;
@@ -518,3 +620,80 @@ Profile Page CSS
   border-radius: 10px; 
 }
 /* Slideshow Container */
+.imageSlider {
+  width: 100vw; /* Full width of the viewport */
+  margin: 0; /* Remove any margin */
+  overflow: hidden; /* Prevent layout shifting */
+}
+
+.carousel-item img {
+  width: 100vw; /* Full width */
+  height: 500px; /* Fixed height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+.carousel-control-prev,.carousel-control-next{
+  background: transparent;
+  border: none;
+}
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 350px; /* Adjust height for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item img {
+    height: 250px; /* Adjust height for smaller screens */
+  }
+}
+/* college-info */
+.college-info {
+  background: linear-gradient(to right, #eef2f3, #d9e2ec);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  /* margin: 20px auto;
+  max-width: 900px; */
+}
+
+.college-info h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0a0928;
+  margin-bottom: 10px;
+}
+
+.college-info h2 {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.college-info p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.college-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.college-info li {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0056b3;
+  margin: 5px 0;
+}
+
+.college-info a {
+  font-weight: bold;
+  color: #068932;
+  text-decoration: none;
+}
+
+.college-info a:hover {
+  text-decoration: underline;
+}
