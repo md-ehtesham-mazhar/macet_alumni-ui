@@ -56,10 +56,10 @@ import User from "../models/user.model.js";
  
      await newMessage.save();
  
-     const receiverSocketId = getReceiverSocketId(receiverId);
-     if (receiverSocketId) {
-       io.to(receiverSocketId).emit("newMessage", newMessage);
-     }
+    //  const receiverSocketId = getReceiverSocketId(receiverId);
+    //  if (receiverSocketId) {
+    //    io.to(receiverSocketId).emit("newMessage", newMessage);
+    //  }
  
      res.status(201).json(newMessage);
    } catch (error) {
